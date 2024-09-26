@@ -47,8 +47,7 @@ public class HomeWorks {
 
 
 @Test
-public void testHomeWorkEx5()
-{
+public void testHomeWorkEx5() throws InterruptedException {
     String name_of_folder = "Test list1";
     String search_line = "Java";
 
@@ -82,17 +81,23 @@ public void testHomeWorkEx5()
 
 
 
-    //SECOND click to context menu button
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/page_actions_tab_layout']//*[@text='Save']"),
-            "Cannot find context button for SAVE article. Second action",
-            15
-    );
-
     //First click to context menu button
     waitForElementAndClick(
             By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
             "Cannot find context button for SAVE article. First action",
+            15
+    );
+
+    //Second click to context menu button
+    waitForElementAndClick(
+            By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+            "Hide context menu",
+            30
+    );
+
+    waitForElementAndClick(
+            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
+            "Cannot find save context menu",
             15
     );
 
@@ -101,6 +106,8 @@ public void testHomeWorkEx5()
             "Cannot find text line for input in the context menu",
             15
     );
+
+    Thread.sleep(8000);
 
 //    waitForElementAndClick(
 //            By.xpath("//*[@resource-id='android:id/button1']//*[@text='OK']"),
@@ -158,7 +165,8 @@ public void testHomeWorkEx5()
         WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
         wait.withMessage(error_message + "\n");
         return wait.until(
-                ExpectedConditions.presenceOfElementLocated(by)
+                //ExpectedConditions.presenceOfElementLocated(by)
+                ExpectedConditions.elementToBeClickable(by)
 
         );
 
