@@ -80,12 +80,7 @@ public void testHomeWorkEx5()
             15
     );
 
-    //First click to context menu button
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-            "Cannot find context button for SAVE article. First action",
-            15
-    );
+
 
     //SECOND click to context menu button
     waitForElementAndClick(
@@ -93,14 +88,19 @@ public void testHomeWorkEx5()
             "Cannot find context button for SAVE article. Second action",
             15
     );
-    //**********************************************************************************************************************
-    waitForElementAndSendKeys(
-            By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
-            name_of_folder,
-            "Cannot find text line for input in the context menu",
-            25
+
+    //First click to context menu button
+    waitForElementAndClick(
+            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
+            "Cannot find context button for SAVE article. First action",
+            15
     );
-//***************************************************************************************************3***************1********
+
+    waitForElementAndClick(
+            By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
+            "Cannot find text line for input in the context menu",
+            15
+    );
 
 //    waitForElementAndClick(
 //            By.xpath("//*[@resource-id='android:id/button1']//*[@text='OK']"),
