@@ -179,14 +179,14 @@ public void testHomeWorkEx5() throws InterruptedException {
 
     private WebElement waitForElementAndClick(By by, String error_message, long timeoutInSeconds)
     {
-        WebElement element =  waitForElementPresent(by, error_message, 5);
+        WebElement element =  waitForElementPresent(by, error_message, timeoutInSeconds);
         element.click();
         return element;
     }
 
     private WebElement waitForElementAndSendKeys(By by, String value, String error_message, long timeoutInSeconds)
     {
-        WebElement element =  waitForElementPresent(by, error_message, 5);
+        WebElement element =  waitForElementPresent(by, error_message, timeoutInSeconds);
         element.sendKeys(value);
         return element;
     }
