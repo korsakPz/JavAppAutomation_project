@@ -77,7 +77,7 @@ public void testHomeWorkEx5()
     waitForElementAndClick(
             By.xpath("//*[contains(@text, 'Java (programming language)')]"),
             "Cannot find search article by JAVA",
-            5
+            15
     );
 
     //First click to context menu button
@@ -87,26 +87,20 @@ public void testHomeWorkEx5()
             15
     );
 
-    //Second click to context menu button
+    //SECOND click to context menu button
     waitForElementAndClick(
-            By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-            "Hide context menu",
-            30
-    );
-
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-            "Cannot find save context menu",
+            By.xpath("//*[@resource-id='org.wikipedia:id/page_actions_tab_layout']//*[@text='Save']"),
+            "Cannot find context button for SAVE article. Second action",
             15
     );
-
+    //**********************************************************************************************************************
     waitForElementAndSendKeys(
-            By.xpath("//*[@resource-id='org.wikipedia:id/content']//[@text='Add to another reading list']"),
+            By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
             name_of_folder,
             "Cannot find text line for input in the context menu",
-            15
+            25
     );
-
+//**************************************************************************************************************************
 
 //    waitForElementAndClick(
 //            By.xpath("//*[@resource-id='android:id/button1']//*[@text='OK']"),
