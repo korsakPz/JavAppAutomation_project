@@ -13,6 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 
 import java.net.URL;
 import java.util.List;
@@ -46,68 +49,68 @@ public class HomeWorks {
     }
 
 
-@Test
-public void testHomeWorkEx5() throws InterruptedException {
-    String name_of_folder = "Test list1";
-    String search_line = "Java";
+    @Test
+    public void testHomeWorkEx5() throws InterruptedException {
+        String name_of_folder = "Test list1";
+        String search_line = "Java";
 
 
 
-    waitForElementAndClick(
-            By.xpath("//*[contains(@text, 'Skip')]"),
-            "Cannot SKIP button",
-            5
-    );
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Skip')]"),
+                "Cannot SKIP button",
+                5
+        );
 
 
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/search_container']//*[@text='Search Wikipedia']"),
-            "Cannot find search line __Search Wikipedia__",
-            5
-    );
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/search_container']//*[@text='Search Wikipedia']"),
+                "Cannot find search line __Search Wikipedia__",
+                5
+        );
 
-    waitForElementAndSendKeys(
-            By.xpath("//*[@resource-id='org.wikipedia:id/search_plate']//*[@text='Search Wikipedia']"),
-            search_line,
-            "Cannot find articles by JAVA articles",
-            15
-    );
+        waitForElementAndSendKeys(
+                By.xpath("//*[@resource-id='org.wikipedia:id/search_plate']//*[@text='Search Wikipedia']"),
+                search_line,
+                "Cannot find articles by JAVA articles",
+                15
+        );
 
-    waitForElementAndClick(
-            By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-            "Cannot find search article by JAVA",
-            15
-    );
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+                "Cannot find search article by JAVA",
+                15
+        );
 
 
 
-    //First click to context menu button
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-            "Cannot find context button for SAVE article. First action",
-            15
-    );
+        //First click to context menu button
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
+                "Cannot find context button for SAVE article. First action",
+                15
+        );
 
-    //Second click to context menu button
-    waitForElementAndClick(
-            By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-            "Hide context menu",
-            30
-    );
+        //Second click to context menu button
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+                "Hide context menu",
+                30
+        );
 
-    waitForElementAndClick(
-            By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-            "Cannot find save context menu",
-            15
-    );
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
+                "Cannot find save context menu",
+                15
+        );
 
-    waitForElementAndClick(
-            By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
-            "Cannot find text line for input in the context menu",
-            15
-    );
+        waitForElementAndClick(
+                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
+                "Cannot find text line for input in the context menu",
+                15
+        );
 
-    Thread.sleep(8000);
+        Thread.sleep(8000);
 
 //    waitForElementAndClick(
 //            By.xpath("//*[@resource-id='android:id/button1']//*[@text='OK']"),
@@ -155,7 +158,7 @@ public void testHomeWorkEx5() throws InterruptedException {
 //
 //    );
 
-}
+    }
 
 
 
@@ -219,9 +222,9 @@ public void testHomeWorkEx5() throws InterruptedException {
         int end_y = (int)(size.height * 0.2);
 
         action
-                .press(x, start_y)
-                .waitAction(timeOfSwipe)
-                .moveTo(x, end_y)
+                .press(PointOption.point(x, start_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+                .moveTo(PointOption.point(x, end_y))
                 .release()
                 .perform();
     }
@@ -263,10 +266,11 @@ public void testHomeWorkEx5() throws InterruptedException {
         int middle_y = (upper_y + lower_y) / 2;
 
         TouchAction  action = new TouchAction(driver);
+
         action
-                .press(right_x, middle_y)
-                .waitAction(300)
-                .moveTo(left_x, middle_y)
+                .press(PointOption.point(right_x, middle_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))
+                .moveTo((PointOption.point(left_x, middle_y))
                 .release()
                 .perform();
 

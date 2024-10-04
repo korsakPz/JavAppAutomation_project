@@ -1,6 +1,8 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,6 +14,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import java.net.URL;
 import java.util.List;
@@ -644,8 +648,8 @@ public class FirstTest {
 
         TouchAction  action = new TouchAction(driver);
         action
-                .press(right_x, middle_y)
-                .waitAction(300)
+                .press(PointOption.point(right_x, middle_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))
                 .moveTo(left_x, middle_y)
                 .release()
                 .perform();
