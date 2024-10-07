@@ -33,8 +33,8 @@ public class FirstTest {
 
         capabilities.setCapability("platformName","Android");
         capabilities.setCapability("deviceName","AndroidTestDevice");
-        capabilities.setCapability("platformVersion","8.0");
-        capabilities.setCapability("automationName","Appium");
+        capabilities.setCapability("platformVersion","12.0");
+        capabilities.setCapability("automationName","UiAutomator2");
         capabilities.setCapability("appPackage","org.wikipedia");
         capabilities.setCapability("appActivity",".main.MainActivity");
         capabilities.setCapability("app","C:\\Users\\Korsak\\Documents\\AutoTestirovanie\\JavAppAutomation\\APKs\\org.wikipedia.apk");
