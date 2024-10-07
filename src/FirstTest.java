@@ -39,7 +39,7 @@ public class FirstTest {
         capabilities.setCapability("appActivity",".main.MainActivity");
         capabilities.setCapability("app","C:\\Users\\Korsak\\Documents\\AutoTestirovanie\\JavAppAutomation\\APKs\\org.wikipedia.apk");
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), capabilities);
     }
 
     @After
@@ -531,7 +531,7 @@ public class FirstTest {
         );
 
 //
-        driver.runAppInBackground(1);
+        driver.runAppInBackground((Duration.ofSeconds(1)));
 //
         waitForElementPresent(
                 By.xpath("//*[@class='android.view.ViewGroup']//*[@text='Object-oriented programming language']"),
@@ -603,11 +603,18 @@ public class FirstTest {
         int end_y = (int)(size.height * 0.2);
 
         action
-                .press(x, start_y)
-                .waitAction(timeOfSwipe)
-                .moveTo(x, end_y)
+
+                .press(PointOption.point(x, start_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(timeOfSwipe)))
+                .moveTo((PointOption.point(x, end_y)))
                 .release()
                 .perform();
+
+//                .press(x, start_y)
+//                .waitAction(timeOfSwipe)
+//                .moveTo(x, end_y)
+//                .release()
+//                .perform();
     }
 
     protected void swipeUpQuick()
@@ -649,8 +656,8 @@ public class FirstTest {
         TouchAction  action = new TouchAction(driver);
         action
                 .press(PointOption.point(right_x, middle_y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))
-                .moveTo(left_x, middle_y)
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+                .moveTo(PointOption.point(left_x, middle_y))
                 .release()
                 .perform();
 

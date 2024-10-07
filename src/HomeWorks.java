@@ -39,7 +39,7 @@ public class HomeWorks {
         capabilities.setCapability("appActivity",".main.MainActivity");
         capabilities.setCapability("app","C:\\Users\\Korsak\\Documents\\AutoTestirovanie\\JavAppAutomation\\APKs\\org.wikipedia.apk");
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), capabilities);
     }
 
     @After
@@ -269,8 +269,8 @@ public class HomeWorks {
 
         action
                 .press(PointOption.point(right_x, middle_y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300))
-                .moveTo((PointOption.point(left_x, middle_y))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(300)))
+                .moveTo((PointOption.point(left_x, middle_y)))
                 .release()
                 .perform();
 
