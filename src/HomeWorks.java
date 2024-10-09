@@ -53,6 +53,7 @@ public class HomeWorks {
     public void testHomeWorkEx5() throws InterruptedException {
         String name_of_folder = "Test list1";
         String search_line = "Java";
+        String input_line = "Test1 save";
 
 
 
@@ -105,10 +106,31 @@ public class HomeWorks {
         );
 
         waitForElementAndClick(
-                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
+                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Move from Saved to another reading list']"),
                 "Cannot find text line for input in the context menu",
                 15
         );
+
+        waitForElementAndClick(
+                By.xpath("//*[@resource-id='org.wikipedia:id/create_button']//*[@text='Create new']"),
+                "Cannot create new save spice",
+                15
+        );
+
+        waitForElementAndSendKeys(
+                By.xpath("//*[contains(@text, 'Name of this list')]"),
+                input_line,
+                "Cannot find input field for save my articles",
+                15
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'OK')]"),
+                "Cannot find OK button on the SaveArticleBoard",
+                15
+        );
+
+
 
         Thread.sleep(8000);
 
