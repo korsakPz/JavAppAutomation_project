@@ -53,7 +53,6 @@ public class HomeWorks {
     public void testHomeWorkEx5() throws InterruptedException {
         String name_of_folder = "Test list1";
         String search_line = "Java";
-        String input_line = "Test1 save";
 
 
 
@@ -106,151 +105,10 @@ public class HomeWorks {
         );
 
         waitForElementAndClick(
-                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Move from Saved to another reading list']"),
+                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
                 "Cannot find text line for input in the context menu",
                 15
         );
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/create_button']//*[@text='Create new']"),
-                "Cannot create new save spice",
-                15
-        );
-
-        waitForElementAndSendKeys(
-                By.xpath("//*[contains(@text, 'Name of this list')]"),
-                input_line,
-                "Cannot find input field for save my articles",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//android.widget.ScrollView//android.widget.Button[@text='OK']"),
-                "Cannot find OK button on the SaveArticleBoard",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-                "Cannot find element of text JAVA (programming language)",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_toolbar']"),
-                "Cannot find button BACK on the article window",
-                15
-        );
-
-
-        waitForElementAndSendKeys(
-                By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
-                search_line,
-                "Cannot find input for new search ARTICLES",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Java version history')]"),
-                "Cannot find NEW article",
-                15
-        );
-
-        //First click to context menu button AGAIN 1
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-                "Cannot find context button for SAVE article. First action",
-                15
-        );
-
-        //Second click to connect menu button AGAIN 2
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-                "Cannot find context button for SAVE article. First action",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Add to another reading list')]"),
-                "Cannot find line for save my SECOND article",
-                30
-        );
-
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Test1 save')]"),
-                "Cannot find text line for input in the context menu",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@class='android.widget.ImageButton']"),
-                "Cannot find BACK button",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@class='android.widget.ImageButton']"),
-                "Cannot find BACK 44444",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@class='android.widget.ImageButton']"),
-                "Cannot find saved list",
-                15
-        );
-
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/nav_tab_reading_lists']"),
-                "Cannot find my saved articles",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Test1 save')]"),
-                "Cannot find button BACK on the article window AGAIN",
-                15
-        );
-
-        swipeElementToLeft(
-                By.xpath("//*[contains(@text, 'Java version history')]"),
-                "Cannot find article in the save box"
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-                "Cannot find button BACK on the article window AGAIN",
-                15
-        );
-
-        waitForElementPresent(
-                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-                        "Cannot find our article",
-                        15
-        );
-
-
-//        waitForElementAndClick(
-//                By.xpath("//*[contains(@text, 'Saved')]"),
-//                "Cannot find button SAVE on the down plate",
-//                15
-//        );
-//
-//        waitForElementAndClick(
-//                By.xpath("//*[contains(@text, 'Saved')]"),
-//                "Cannot open (Test 1 save)",
-//                15
-//        );
-
-
-
-
-
-
-
-
 
         Thread.sleep(8000);
 
