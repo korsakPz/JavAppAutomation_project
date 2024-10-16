@@ -50,39 +50,43 @@ public class HomeWorkEx6 {
 
 
     @Test
-    public void testHomeWorkEx6() throws InterruptedException {
-        String name_of_folder = "Test list1";
-        String search_line = "Java";
+    public void assertElementPresent() throws InterruptedException {
 
+        String search_line = "Java";
+        String search_result_locator = "//*[contains(@text, 'Java (programming language)')]";
+        String empty_result_label = "//*[contains(@text, 'Java (programming language)')]";
 
 
         waitForElementAndClick(
                 By.xpath("//*[contains(@text, 'Skip')]"),
-                "Cannot SKIP button",
+                "Cannot SKIP element",
                 5
         );
 
 
         waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/search_container']//*[@text='Search Wikipedia']"),
-                "Cannot find search line __Search Wikipedia__",
+                By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
+                "Cannot find search field",
                 5
         );
 
         waitForElementAndSendKeys(
-                By.xpath("//*[@resource-id='org.wikipedia:id/search_plate']//*[@text='Search Wikipedia']"),
+                By.xpath("//*[contains(@text, 'Search Wikipedia')]"),
                 search_line,
-                "Cannot find articles by JAVA articles",
+                "Cannot find articles by JAVA word",
                 15
         );
 
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-                "Cannot find search article by JAVA",
+        waitForElementPresent(
+                By.xpath(empty_result_label),
+                "Cannot find element " + empty_result_label,
                 15
         );
 
-
+        assertElementNotPresent(
+                By.xpath(search_result_locator),
+                "We've found some results by request " + search_line
+        );
 
 
     }
