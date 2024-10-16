@@ -188,6 +188,13 @@ public class HomeWorks {
                 "Cannot find BACK button",
                 15
         );
+
+        waitForElementAndClick(
+                By.xpath("//*[@class='android.widget.ImageButton']"),
+                "Cannot find BACK 44444",
+                15
+        );
+
         waitForElementAndClick(
                 By.xpath("//*[@class='android.widget.ImageButton']"),
                 "Cannot find saved list",
@@ -196,17 +203,35 @@ public class HomeWorks {
 
 
         waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Test1 save')]"),
+                By.xpath("//*[@resource-id='org.wikipedia:id/nav_tab_reading_lists']"),
                 "Cannot find my saved articles",
                 15
         );
 
-//        waitForElementAndClick(
-//                By.xpath("//*[@class='android.widget.ImageButton']"),
-//                "Cannot find button BACK on the article window AGAIN",
-//                15
-//        );
-//
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Test1 save')]"),
+                "Cannot find button BACK on the article window AGAIN",
+                15
+        );
+
+        swipeElementToLeft(
+                By.xpath("//*[contains(@text, 'Java version history')]"),
+                "Cannot find article in the save box"
+        );
+
+        waitForElementAndClick(
+                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+                "Cannot find button BACK on the article window AGAIN",
+                15
+        );
+
+        waitForElementPresent(
+                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+                        "Cannot find our article",
+                        15
+        );
+
+
 //        waitForElementAndClick(
 //                By.xpath("//*[contains(@text, 'Saved')]"),
 //                "Cannot find button SAVE on the down plate",
