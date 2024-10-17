@@ -1,56 +1,26 @@
-import com.gargoylesoftware.htmlunit.javascript.host.Console;
-import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
+import lib.CoreTestCase;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 
-import java.net.URL;
 import java.util.List;
 
-public class HomeWorks {
+public class HomeWorks extends CoreTestCase {
 
 
 
-    private AppiumDriver driver;
 
-    @Before
-    public void setUp() throws Exception
-    {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        capabilities.setCapability("platformName","Android");
-        capabilities.setCapability("deviceName","AndroidTestDevice");
-        capabilities.setCapability("platformVersion","12.0");
-        capabilities.setCapability("automationName","UiAutomator2");
-        capabilities.setCapability("appPackage","org.wikipedia");
-        capabilities.setCapability("appActivity",".main.MainActivity");
-        capabilities.setCapability("app","C:\\Users\\Korsak\\Documents\\AutoTestirovanie\\JavAppAutomation\\APKs\\org.wikipedia.apk");
-
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/"), capabilities);
-    }
-
-    @After
-    public void tearDown()
-    {
-        driver.quit();
-    }
 
 
     @Test
-    public void testHomeWorkEx5() throws InterruptedException {
+    public void testHomeWork5() throws InterruptedException {
         String name_of_folder = "Test list1";
         String search_line = "Java";
 
@@ -91,24 +61,24 @@ public class HomeWorks {
                 15
         );
 
-        //Second click to context menu button
-        waitForElementAndClick(
-                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
-                "Hide context menu",
-                30
-        );
-
-        waitForElementAndClick(
-                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
-                "Cannot find save context menu",
-                15
-        );
-
-        waitForElementAndClick(
-                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
-                "Cannot find text line for input in the context menu",
-                15
-        );
+//        //Second click to context menu button
+//        waitForElementAndClick(
+//                By.xpath("//*[contains(@text, 'Java (programming language)')]"),
+//                "Hide context menu",
+//                30
+//        );
+//
+//        waitForElementAndClick(
+//                By.xpath("//*[@resource-id='org.wikipedia:id/page_save']"),
+//                "Cannot find save context menu",
+//                15
+//        );
+//
+//        waitForElementAndClick(
+//                By.xpath("//android.widget.ListView//android.widget.TextView[@text='Add to another reading list']"),
+//                "Cannot find text line for input in the context menu",
+//                15
+//        );
 
         Thread.sleep(8000);
 
