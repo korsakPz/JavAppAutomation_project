@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 import java.time.Duration;
 
+
 public class CoreTestCase  extends TestCase {
 
     protected AppiumDriver driver;
@@ -57,7 +58,7 @@ public class CoreTestCase  extends TestCase {
     {
         driver.runAppInBackground(seconds);
 
-                //driver.runAppInBackground(Duration.ofSeconds(seconds)); 333
+
     }
 
 }
