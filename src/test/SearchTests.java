@@ -40,7 +40,7 @@ public class SearchTests extends CoreTestCase
         SearchPageObject SearchPageObject = new SearchPageObject(driver);
         SearchPageObject.initSearchInput();
         SearchPageObject.typeSearchLine(search_line);
-        SearchPageObject.clickByArticleWithSustring("Object-oriented programming language");
+        SearchPageObject.clickByArticleWithSubstring("Object-oriented programming language");
         int amount_of_search_results =  SearchPageObject.getAmountOfFoundArticles();
 
         assertTrue(

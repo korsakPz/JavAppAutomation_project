@@ -55,8 +55,9 @@ public class CoreTestCase  extends TestCase {
 
     protected void backgroundApp(int seconds)
     {
-        driver.runAppInBackground((Duration.ofSeconds(seconds)));
+        driver.runAppInBackground(seconds);
 
+                //driver.runAppInBackground(Duration.ofSeconds(seconds));
     }
 
 }

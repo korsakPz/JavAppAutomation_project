@@ -12,7 +12,8 @@ public class SearchPageObject extends MainPageOdject {
             SEARCH_CANCEL_BUTTON = "org.wikipedia:id/search_src_text",
             SEARCH_RESULT_BY_SUBSTRING_TPL = "//*[@class='android.view.ViewGroup']//*[@text='{SUBSTRING}']",
             SEARCH_RESULT_ELEMENT = "//*[@resource-id='org.wikipedia:id/search_results_list']/*[@class='android.view.ViewGroup']/*[@resource-id='org.wikipedia:id/page_list_item_title']",
-            SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text,'No results']";
+            SEARCH_EMPTY_RESULT_ELEMENT = "//*[@text,'No results']",
+            SEARCH_CANSEL_BUTTON = "Navigate up";
 
 
 
@@ -63,7 +64,7 @@ public class SearchPageObject extends MainPageOdject {
         this.waitForElementPresent(By.xpath(search_result_xpath), "Cannot find search result with SUBSTRING "+ substring);
     }
 
-    public void clickByArticleWithSustring(String substring)
+    public void clickByArticleWithSubstring(String substring)
     {
         String search_result_xpath = getResultSearchElement(substring);
         this.waitForElementAndClick(By.xpath(search_result_xpath), "Cannot find and click search result with SUBSTRING "+ substring, 10);
@@ -95,5 +96,15 @@ public class SearchPageObject extends MainPageOdject {
 
 
     }
+
+    public void getCancelButton()
+    {
+        this.waitForElementAndClick(
+                By.id(SEARCH_CANSEL_BUTTON),
+                "We cannot find cancel button. ALARM!!!",
+                5
+        );
+    }
+
 
 }
